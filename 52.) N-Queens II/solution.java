@@ -1,24 +1,24 @@
 class Solution {
-    public List<List<String>> solveNQueens(int n) {
-        List<List<String>> result = new ArrayList<>();
+    public int totalNQueens(int n) {
+        int[] count = new int[1]; // To store the count of solutions
         char[][] board = new char[n][n];
         for (int i = 0; i < n; i++) {
             Arrays.fill(board[i], '.');
         }
-        solveNQueensHelper(result, board, 0, n);
-        return result;
+        solveNQueensHelper(count, board, 0, n);
+        return count[0];
     }
     
-    private void solveNQueensHelper(List<List<String>> result, char[][] board, int row, int n) {
+    private void solveNQueensHelper(int[] count, char[][] board, int row, int n) {
         if (row == n) {
-            result.add(constructSolution(board));
+            count[0]++;
             return;
         }
         
         for (int col = 0; col < n; col++) {
             if (isValidMove(board, row, col, n)) {
                 board[row][col] = 'Q';
-                solveNQueensHelper(result, board, row + 1, n);
+                solveNQueensHelper(count, board, row + 1, n);
                 board[row][col] = '.';
             }
         }
@@ -47,13 +47,5 @@ class Solution {
         }
         
         return true;
-    }
-    
-    private List<String> constructSolution(char[][] board) {
-        List<String> solution = new ArrayList<>();
-        for (char[] row : board) {
-            solution.add(new String(row));
-        }
-        return solution;
     }
 }
