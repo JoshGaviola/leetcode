@@ -6,7 +6,7 @@ public:
         int sum = 0;
         int minLen = INT_MAX;
 
-        for (int i = 0; right < n; right++) {
+        for (int right = 0; right < n; right++) {
             sum += nums[right];
 
             while (sum >= target) {
