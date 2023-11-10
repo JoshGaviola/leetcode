@@ -13,6 +13,9 @@
         "xhash": "cpp",
         "xstring": "cpp",
         "xutility": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "algorithm": "cpp",
+        "limits": "cpp",
+        "utility": "cpp"
     }
 }
